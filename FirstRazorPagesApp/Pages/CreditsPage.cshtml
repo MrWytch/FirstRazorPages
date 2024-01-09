@@ -1,0 +1,58 @@
+﻿@page
+@model FirstRazorPagesApp.Pages.CreditsPageModel
+@{
+}
+
+<div class="container">
+    <h2>Hodnocení</h2>
+    <form method="post" asp-page-handler="SaveData" class="creditsForm">
+        <div class="form-group">
+            <label for="rating">Hodnocení:</label>
+            <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" value="1" style="width: 100px;" required>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="success" name="success" value="true">
+            <label class="form-check-label" for="success">Úspěch</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Uložit</button>
+    </form>
+</div>
+<br><br>
+<table class="table table-bordered table-responsive-md table-sm text-center m-md-2">
+    <thead>
+        <tr>
+            <th>
+                <label >ID</label>
+            </th>
+            <th>
+                <label>Vytvořeno</label>
+            </th>
+            <th>
+                <label>Hodnocení</label>
+            </th>
+            <th>
+                <label>Úspěch</label>
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LstCredits)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Created
+                </td>
+                <td>
+                    @item.Value
+                </td>
+                <td>
+                    @item.Success
+                </td>         
+            </tr>
+        }
+    </tbody>
+</table>
