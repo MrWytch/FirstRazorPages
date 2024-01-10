@@ -34,14 +34,14 @@ namespace FirstRazorPagesApp.Pages
                 Created = DateTime.Now,
                 Value = Rating,
                 Success = Success
-                // Id je nastaveno na autoinkrement
+                
             };
 
-            // Pøidání do kontextu a uložení zmìn do databáze
+            
             _context.Credits.Add(credit);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./CreditsPage"); // Reloaduju stránku pro zobrazení zmìn         
+            return RedirectToPage("./CreditsPage");      
         }
 
         public async Task OnGetAsync()
